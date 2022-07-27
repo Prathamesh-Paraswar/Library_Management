@@ -53,7 +53,9 @@ app.use("/Borrow",require('./Routes/Borrowing'))
 //     });
 //    }
 // // app.use('/Static',require('./Routes/Static'))
-
+app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "client", "build", "index.html"));
+});
 app.listen(process.env.PORT || 7000,()=>{
     console.log(`Running on port 7000`);
 })
